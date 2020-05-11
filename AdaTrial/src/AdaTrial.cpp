@@ -3,7 +3,7 @@
 /******************************************************/
 
 #include "Particle.h"
-#line 1 "/home/brian/Documents/BootcampDocs/TestLab/AdaTrial/src/AdaTrial.ino"
+#line 1 "c:/Users/IoT_Instructor/Documents/Brian/particle-03-brashap/AdaTrial/src/AdaTrial.ino"
 /*
  * Project AdaTrial
  * Description: Trial Script for using Adafruit.io
@@ -22,11 +22,11 @@
 /************************* Adafruit.io Setup *********************************/ 
 void setup();
 void loop();
-#line 17 "/home/brian/Documents/BootcampDocs/TestLab/AdaTrial/src/AdaTrial.ino"
+#line 17 "c:/Users/IoT_Instructor/Documents/Brian/particle-03-brashap/AdaTrial/src/AdaTrial.ino"
 #define AIO_SERVER      "io.adafruit.com" 
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL 
 #define AIO_USERNAME  "<username>"
-#define AIO_KEY       "<key>>"
+#define AIO_KEY       "<key>"
 
 
 /************ Global State (you don't need to change this!) ***   ***************/ 
@@ -40,8 +40,8 @@ Adafruit_MQTT_SPARK mqtt(&TheClient,AIO_SERVER,AIO_SERVERPORT,AIO_USERNAME,AIO_K
 // Setup a feed called <object> for publishing. 
 // Notice MQTT paths for AIO follow the form: <username>/feeds/<feedname> 
 
-Adafruit_MQTT_Publish <object1> = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/<feedname1>");
-Adafruit_MQTT_Publish <object2> = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/<feedname2>");
+Adafruit_MQTT_Publish object1 = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/feedname1");
+Adafruit_MQTT_Publish object2 = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/feedname2");
 
 /************************ Normal Declarations ******************************/
 int feed1;
@@ -62,14 +62,14 @@ void loop() {
   feed2 = random(1,1000);
 
  if(mqtt.Update()){
-  <object1>.publish(feed1); 
-  <object2>.publish(feed2);
+  object1.publish(feed1); 
+  object2.publish(feed2);
  } 
 
   time1=millis();
   time2=millis();
   while((time2-time1)<2000) {
-    time2=mills();
+    time2=millis();
   }
 
  delay(30000);
